@@ -36,7 +36,7 @@ export default function Home() {
               </div>
               <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container">
                 {/* Put your photo at public/trisha.jpg */}
-                <Image src="/trisha.jpg" loading="eager" alt="Trisha Pal" fill sizes="(min-width:1024px) 40vw, 100vw"
+                <Image src="/trisha1.jpeg" loading="eager" alt="Trisha Pal" fill sizes="(min-width:1024px) 40vw, 100vw"
                   className="object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700" />
                 <div className="absolute bottom-3 inset-x-3 bg-white/95 backdrop-blur-md p-3 rounded-lg shadow-sm flex items-center justify-between">
                   <div>
