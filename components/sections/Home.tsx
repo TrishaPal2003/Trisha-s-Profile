@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import Icon from "@/components/Icon";
@@ -8,95 +9,194 @@ const chips = [
   ["visibility", "Transparent Accounts", "Open Documentation"],
   ["diversity_3", "Inclusive for All Years", "1st to 4th Year Cohorts"],
 ];
-const stats = [["100%", "COMMUNITY FOCUS"], ["7", "CONCRETE INITIATIVES"], ["4", "YEARS INCLUSIVE"]];
 
 export default function Home() {
   return (
-    <section className="w-full py-16 md:py-24 px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto flex flex-col gap-12 lg:gap-16">
-        <div className="flex flex-col items-start gap-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-low text-secondary font-mono text-label-caps tracking-wider shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-            OFFICIAL CANDIDACY • TRISHA PAL • COMPUTER CLUB PRESIDENT
-          </div>
-          <h1 className="text-display-hero-mobile md:text-display-hero max-w-4xl">
-            Learn.<br />Build.<br /><span className="text-secondary">Connect.</span>
-          </h1>
-          <p className="text-body-lg text-on-surface-variant max-w-2xl">
-            Let’s build a Computer Club where every student gets the opportunity to learn, create, collaborate, and grow—from first-year curiosity to competitive excellence and industry readiness.
-          </p>
-        </div>
+    <main className="w-full overflow-hidden">
+      <section className="w-full px-4 py-10 sm:px-6 sm:py-14 md:py-20 lg:px-12 lg:py-24">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 sm:gap-12 lg:gap-16">
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          <div className="lg:col-span-5 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between shadow-sm group">
-            <div className="flex flex-col gap-6">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-mono-code text-on-surface-variant">BALLOT REF: #TP-2024</span>
-                <span className="px-2.5 py-0.5 rounded-full bg-surface-container font-mono text-label-caps">DEPT. OF CSE</span>
-              </div>
-              <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container">
-                {/* Put your photo at public/trisha.jpg */}
-                <Image src="/trisha1.jpeg" loading="eager" alt="Trisha Pal" fill sizes="(min-width:1024px) 40vw, 100vw"
-                  className="object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700" />
-                {/* <div className="absolute bottom-3 inset-x-3 bg-white/95 backdrop-blur-md p-3 rounded-lg shadow-sm flex items-center justify-between">
-                  <div>
-                    <p className="text-headline-sm leading-tight">Trisha Pal</p>
-                    <p className="text-body-sm text-on-surface-variant">ICPC Regionalist • Full-Stack Builder</p>
-                  </div>
-                  <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-on-secondary shrink-0">
-                    <Icon name="verified" className="text-[18px]" />
-                  </div>
-                </div> */}
-              </div>
+          {/* Hero introduction */}
+          <div className="flex max-w-4xl flex-col items-start gap-4 sm:gap-5">
+            <div className="inline-flex max-w-full items-center gap-2 rounded-full bg-surface-container-low px-3 py-2 text-secondary shadow-sm">
+              <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-secondary" />
+              <span className="font-mono text-[10px] leading-relaxed tracking-wider sm:text-xs">
+                OFFICIAL CANDIDACY • TRISHA PAL • COMPUTER CLUB PRESIDENT
+              </span>
             </div>
-            <div className="mt-6 bg-white rounded-lg p-4 shadow-sm flex items-center justify-around gap-2 text-center">
-               <div>
-                    <p className="text-headline-sm leading-tight">Trisha Pal</p>
-                    <p className="text-body-sm text-on-surface-variant">ICPC Regionalist • Full-Stack Builder</p>
-                  </div>
-                  <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-on-secondary shrink-0">
-                    <Icon name="verified" className="text-[18px]" />
-                  </div>
-            </div>
+
+            <h1 className="text-5xl font-semibold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl lg:text-display-hero">
+              Learn.
+              <br />
+              Build.
+              <br />
+              <span className="text-secondary">Connect.</span>
+            </h1>
+
+            <p className="max-w-2xl text-base leading-relaxed text-on-surface-variant sm:text-lg">
+              Let’s build a Computer Club where every student gets the
+              opportunity to learn, create, collaborate, and grow—from
+              first-year curiosity to competitive excellence and industry
+              readiness.
+            </p>
           </div>
 
-          <div className="lg:col-span-7 bg-white rounded-xl p-8 lg:p-12 flex flex-col justify-between shadow-sm">
-            <div className="flex flex-col gap-6">
-              <div className="flex items-center gap-3">
-                <span className="w-3 h-3 rounded-full bg-secondary" />
-                <span className="font-mono text-mono-code text-on-surface-variant">PLATFORM DECLARATION // TERM 2024-2025</span>
+          {/* Main content */}
+          <div className="grid grid-cols-1 items-stretch gap-5 sm:gap-7 lg:grid-cols-12 lg:gap-8">
+
+            {/* Candidate profile */}
+            <div className="group flex min-w-0 flex-col justify-between rounded-xl bg-surface-container-low p-5 shadow-sm sm:p-7 lg:col-span-5 lg:p-8">
+              <div className="flex flex-col gap-5 sm:gap-6">
+
+                {/* Profile metadata */}
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className="font-mono text-xs text-on-surface-variant sm:text-sm">
+                    CANDIDATE PROFILE
+                  </span>
+
+                  <span className="rounded-full bg-surface-container px-3 py-1 font-mono text-[10px] tracking-wide sm:text-xs">
+                    DEPT. OF CSE
+                  </span>
+                </div>
+
+                {/* Candidate image */}
+                <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-lg bg-surface-container sm:aspect-square lg:max-w-none">
+                  <Image
+                    src="/trisha1.jpeg"
+                    alt="Trisha Pal, candidate for Computer Club President"
+                    fill
+                    priority
+                    sizes="(max-width: 639px) 100vw, (max-width: 1023px) 70vw, 40vw"
+                    className="object-cover object-center grayscale contrast-125 transition-all duration-700 group-hover:grayscale-0"
+                  />
+                </div>
               </div>
-              <h2 className="text-headline-lg">A leadership model grounded in demonstrable execution, technical merit, and open governance.</h2>
-              <p className="text-body-md text-on-surface-variant">
-                University clubs should not be exclusive circles reserved for established veterans or disconnected figureheads. I am stepping forward to turn our Computer Club into a high-octane launchpad where freshmen find patient mentors, seniors convert capstones into startups, and competitive coders train with structural backing.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                {chips.map(([icon, t, s]) => (
-                  <div key={t} className="p-3 rounded-lg bg-surface-container-low flex items-center gap-3">
-                    <Icon name={icon} className="text-secondary text-[20px]" />
-                    <div>
-                      <p className="text-body-sm font-semibold">{t}</p>
-                      <p className="font-mono text-label-caps text-on-surface-variant">{s}</p>
+
+              {/* Candidate identity */}
+              <div className="mt-5 flex min-w-0 items-center justify-between gap-3 rounded-lg bg-white p-4 shadow-sm sm:p-5">
+                <div className="min-w-0">
+                  <p className="truncate text-lg font-semibold leading-tight sm:text-xl">
+                    Trisha Pal
+                  </p>
+                  <p className="mt-1 text-xs leading-relaxed text-on-surface-variant sm:text-sm">
+                    ICPC Dhaka Regional Participant
+                    <span className="hidden sm:inline"> • </span>
+                    <span className="block sm:inline">Full-Stack Developer</span>
+                  </p>
+                </div>
+
+                <div
+                  aria-label="Candidate profile"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary text-on-secondary"
+                >
+                  <Icon name="verified" className="text-lg" />
+                </div>
+              </div>
+            </div>
+
+            {/* Campaign platform */}
+            <div className="flex min-w-0 flex-col justify-between gap-8 rounded-xl bg-white p-5 shadow-sm sm:p-7 md:p-9 lg:col-span-7 lg:p-12">
+              <div className="flex flex-col gap-5 sm:gap-6">
+
+                {/* Platform label */}
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="h-3 w-3 shrink-0 rounded-full bg-secondary" />
+                  <span className="font-mono text-xs leading-relaxed text-on-surface-variant sm:text-sm">
+                    PLATFORM DECLARATION // TERM 2024-2025
+                  </span>
+                </div>
+
+                <h2 className="text-2xl font-semibold leading-tight tracking-tight sm:text-3xl md:text-4xl">
+                  A leadership model grounded in demonstrable execution,
+                  technical merit, and open governance.
+                </h2>
+
+                <p className="text-sm leading-7 text-on-surface-variant sm:text-base">
+                  University clubs should not be exclusive circles reserved
+                  for established veterans or disconnected figureheads. I am
+                  stepping forward to turn our Computer Club into a platform
+                  where freshmen find patient mentors, seniors develop
+                  practical projects, and competitive programmers train with
+                  structural backing.
+                </p>
+
+                {/* Campaign pillars */}
+                <div className="grid grid-cols-1 gap-3 pt-1 sm:grid-cols-2">
+                  {chips.map(([icon, title, subtitle]) => (
+                    <div
+                      key={title}
+                      className="flex min-w-0 items-start gap-3 rounded-lg bg-surface-container-low p-3 sm:p-4"
+                    >
+                      <Icon
+                        name={icon}
+                        className="mt-0.5 shrink-0 text-xl text-secondary"
+                      />
+
+                      <div className="min-w-0">
+                        <p className="break-words text-sm font-semibold leading-snug">
+                          {title}
+                        </p>
+                        <p className="mt-1 break-words font-mono text-[10px] leading-relaxed text-on-surface-variant sm:text-xs">
+                          {subtitle}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="pt-8 flex flex-wrap items-center gap-4">
-              <Link href="/my-vision" className="inline-flex items-center h-12 px-6 rounded-sm bg-primary text-on-primary text-body-sm hover:bg-secondary transition-all shadow-md active:scale-95">
-                Explore My Vision <Icon name="arrow_downward" className="ml-2 text-[18px]" />
-              </Link>
-              <Link href="/my-journey" className="inline-flex items-center h-12 px-6 rounded-sm bg-surface-container-low text-body-sm hover:bg-surface-container hover:text-secondary transition-all shadow-sm">
-                Meet Your Candidate <Icon name="read_more" className="ml-2 text-[18px]" />
-              </Link>
-              <div className="ml-auto hidden md:flex items-center gap-2">
-                <span className="font-mono text-mono-code text-on-surface-variant">VOTE TRISHA PAL</span>
-                <Icon name="how_to_reg" className="text-secondary text-[16px]" />
+
+              {/* Navigation actions */}
+
+              <div className="flex flex-col gap-3 border-t border-surface-container-highest pt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+                <Link
+                  href="/my-vision"
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-sm bg-primary px-5 py-3 text-sm text-on-primary shadow-md transition-all hover:bg-secondary active:scale-[0.98] sm:w-auto"
+                >
+                  Explore My Vision
+                  <Icon name="arrow_downward" className="text-lg" />
+                </Link>
+
+                <Link
+                  href="/my-journey"
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-sm bg-surface-container-low px-5 py-3 text-sm transition-all hover:bg-surface-container hover:text-secondary active:scale-[0.98] sm:w-auto"
+                >
+                  Meet Your Candidate
+                  <Icon name="read_more" className="text-lg" />
+                </Link>
+
+                <a
+                  href="https://trishapal.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-sm border border-secondary/30 px-5 py-3 text-sm text-secondary transition-all hover:bg-surface-container-low active:scale-[0.98] sm:w-auto"
+                >
+                  Visit My Portfolio
+                  <Icon name="open_in_new" className="text-lg" />
+                </a>
+
+                <div className="flex items-center justify-center gap-2 pt-2 sm:ml-auto sm:pt-0">
+                  <span className="font-mono text-xs text-on-surface-variant">
+                    VOTE TRISHA PAL
+                  </span>
+                  <Icon name="how_to_reg" className="text-base text-secondary" />
+                </div>
+              {/* </div> */}
+
+
+                <div className="flex items-center justify-center gap-2 pt-2 sm:ml-auto sm:pt-0">
+                  <span className="font-mono text-xs text-on-surface-variant">
+                    VOTE TRISHA PAL
+                  </span>
+                  <Icon
+                    name="how_to_reg"
+                    className="text-base text-secondary"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }
