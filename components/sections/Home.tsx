@@ -1,16 +1,21 @@
+"use client";
+
 
 import Image from "next/image";
-import Link from "next/link";
 import Icon from "@/components/Icon";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
-const chips = [
-  ["code", "Technical Experience", "Demonstrated Engineering"],
-  ["handshake", "Practical Leadership", "Action Over Promises"],
-  ["visibility", "Transparent Accounts", "Open Documentation"],
-  ["diversity_3", "Inclusive for All Years", "1st to 4th Year Cohorts"],
+const pillarIcons = [
+  "code",
+  "handshake",
+  "visibility",
+  "diversity_3",
 ];
 
 export default function Home() {
+  const { dictionary } = useLanguage();
+  const home = dictionary.home;
+
   return (
     <main className="w-full overflow-hidden">
       <section className="w-full px-4 py-10 sm:px-6 sm:py-14 md:py-20 lg:px-12 lg:py-24">
@@ -21,23 +26,22 @@ export default function Home() {
             <div className="inline-flex max-w-full items-center gap-2 rounded-full bg-surface-container-low px-3 py-2 text-secondary shadow-sm">
               <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-secondary" />
               <span className="font-mono text-[10px] leading-relaxed tracking-wider sm:text-xs">
-                OFFICIAL CANDIDACY • TRISHA PAL • COMPUTER CLUB PRESIDENT
+                {home.badge}
               </span>
             </div>
 
             <h1 className="text-5xl font-semibold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl lg:text-display-hero">
-              Learn.
+              {home.title.first}
               <br />
-              Build.
+              {home.title.second}
               <br />
-              <span className="text-secondary">Connect.</span>
+              <span className="text-secondary">
+                {home.title.third}
+              </span>
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-on-surface-variant sm:text-lg">
-              Let’s build a Computer Club where every student gets the
-              opportunity to learn, create, collaborate, and grow—from
-              first-year curiosity to competitive excellence and industry
-              readiness.
+              {home.introduction}
             </p>
           </div>
 
@@ -51,11 +55,11 @@ export default function Home() {
                 {/* Profile metadata */}
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="font-mono text-xs text-on-surface-variant sm:text-sm">
-                    CANDIDATE PROFILE
+                    {home.candidateProfile}
                   </span>
 
                   <span className="rounded-full bg-surface-container px-3 py-1 font-mono text-[10px] tracking-wide sm:text-xs">
-                    DEPT. OF CSE
+                    {home.department}
                   </span>
                 </div>
 
@@ -63,7 +67,7 @@ export default function Home() {
                 <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-lg bg-surface-container sm:aspect-square lg:max-w-none">
                   <Image
                     src="/trisha1.jpeg"
-                    alt="Trisha Pal, candidate for Computer Club President"
+                    alt={`${home.candidateName}, candidate for Computer Club President`}
                     fill
                     priority
                     sizes="(max-width: 639px) 100vw, (max-width: 1023px) 70vw, 40vw"
@@ -76,12 +80,15 @@ export default function Home() {
               <div className="mt-5 flex min-w-0 items-center justify-between gap-3 rounded-lg bg-white p-4 shadow-sm sm:p-5">
                 <div className="min-w-0">
                   <p className="truncate text-lg font-semibold leading-tight sm:text-xl">
-                    Trisha Pal
+                    {home.candidateName}
                   </p>
+
                   <p className="mt-1 text-xs leading-relaxed text-on-surface-variant sm:text-sm">
-                    ICPC Dhaka Regional Participant
+                    {home.candidateRole}
                     <span className="hidden sm:inline"> • </span>
-                    <span className="block sm:inline">Full-Stack Developer</span>
+                    <span className="block sm:inline">
+                      {home.candidateProfession}
+                    </span>
                   </p>
                 </div>
 
@@ -102,42 +109,37 @@ export default function Home() {
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="h-3 w-3 shrink-0 rounded-full bg-secondary" />
                   <span className="font-mono text-xs leading-relaxed text-on-surface-variant sm:text-sm">
-                    PLATFORM DECLARATION // TERM 2024-2025
+                    {home.platformLabel}
                   </span>
                 </div>
 
                 <h2 className="text-2xl font-semibold leading-tight tracking-tight sm:text-3xl md:text-4xl">
-                  A leadership model grounded in demonstrable execution,
-                  technical merit, and open governance.
+                  {home.headline}
                 </h2>
 
                 <p className="text-sm leading-7 text-on-surface-variant sm:text-base">
-                  University clubs should not be exclusive circles reserved
-                  for established veterans or disconnected figureheads. I am
-                  stepping forward to turn our Computer Club into a platform
-                  where freshmen find patient mentors, seniors develop
-                  practical projects, and competitive programmers train with
-                  structural backing.
+                  {home.description}
                 </p>
 
                 {/* Campaign pillars */}
                 <div className="grid grid-cols-1 gap-3 pt-1 sm:grid-cols-2">
-                  {chips.map(([icon, title, subtitle]) => (
+                  {home.pillars.map((pillar, index) => (
                     <div
-                      key={title}
+                      key={pillar.title}
                       className="flex min-w-0 items-start gap-3 rounded-lg bg-surface-container-low p-3 sm:p-4"
                     >
                       <Icon
-                        name={icon}
+                        name={pillarIcons[index]}
                         className="mt-0.5 shrink-0 text-xl text-secondary"
                       />
 
                       <div className="min-w-0">
                         <p className="break-words text-sm font-semibold leading-snug">
-                          {title}
+                          {pillar.title}
                         </p>
+
                         <p className="mt-1 break-words font-mono text-[10px] leading-relaxed text-on-surface-variant sm:text-xs">
-                          {subtitle}
+                          {pillar.subtitle}
                         </p>
                       </div>
                     </div>
@@ -146,51 +148,18 @@ export default function Home() {
               </div>
 
               {/* Navigation actions */}
-
               <div className="flex flex-col gap-3 border-t border-surface-container-highest pt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-                <Link
-                  href="/my-vision"
-                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-sm bg-primary px-5 py-3 text-sm text-on-primary shadow-md transition-all hover:bg-secondary active:scale-[0.98] sm:w-auto"
-                >
-                  Explore My Vision
-                  <Icon name="arrow_downward" className="text-lg" />
-                </Link>
-
-                <Link
-                  href="/my-journey"
-                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-sm bg-surface-container-low px-5 py-3 text-sm transition-all hover:bg-surface-container hover:text-secondary active:scale-[0.98] sm:w-auto"
-                >
-                  Meet Your Candidate
-                  <Icon name="read_more" className="text-lg" />
-                </Link>
-
                 <a
                   href="https://trishapal.dev"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-sm border border-secondary/30 px-5 py-3 text-sm text-secondary transition-all hover:bg-surface-container-low active:scale-[0.98] sm:w-auto"
                 >
-                  Visit My Portfolio
+                  {home.portfolio}
                   <Icon name="open_in_new" className="text-lg" />
                 </a>
 
                 <div className="flex items-center justify-center gap-2 pt-2 sm:ml-auto sm:pt-0">
-                  <span className="font-mono text-xs text-on-surface-variant">
-                    VOTE TRISHA PAL
-                  </span>
-                  <Icon name="how_to_reg" className="text-base text-secondary" />
-                </div>
-              {/* </div> */}
-
-
-                <div className="flex items-center justify-center gap-2 pt-2 sm:ml-auto sm:pt-0">
-                  <span className="font-mono text-xs text-on-surface-variant">
-                    VOTE TRISHA PAL
-                  </span>
-                  <Icon
-                    name="how_to_reg"
-                    className="text-base text-secondary"
-                  />
                 </div>
               </div>
             </div>

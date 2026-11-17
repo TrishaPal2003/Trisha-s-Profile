@@ -1,79 +1,41 @@
 
+"use client";
+
 import Section from "@/components/Section";
 import Icon from "@/components/Icon";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
-type Step = {
-  year: string;
-  eyebrow: string;
-  title: string;
-  text: string;
-  icon: string;
-};
-
-const steps: Step[] = [
-  {
-    year: "START",
-    eyebrow: "THE BEGINNING",
-    title: "Starting My Programming Journey",
-    icon: "terminal",
-    text: "I began learning programming in January 2024. Starting with the fundamentals, I gradually developed my problem-solving skills and learned to approach challenges through logic, patience, and consistent practice.",
-  },
-  {
-    year: "ICPC",
-    eyebrow: "COMPETING",
-    title: "ICPC Dhaka Regional 2024",
-    icon: "emoji_events",
-    text: "I participated in the ICPC Dhaka Regional with team MANATRI_CCNUST. The experience introduced me to the intensity of competitive programming, teamwork under time pressure, and the value of learning from challenging problems.",
-  },
-  {
-    year: "PROJECT",
-    eyebrow: "BUILDING FOR REAL",
-    title: "Narayanpur High School",
-    icon: "rocket_launch",
-    text: "I contributed to building Narayanpur High School, a real-world web application. Working on a project intended for real users helped me understand that software development goes beyond writing code—it also means solving practical problems and building something useful.",
-  },
-  {
-    year: "LEADERSHIP",
-    eyebrow: "GETTING INVOLVED",
-    title: "Joint Secretary, Programming Club",
-    icon: "badge",
-    text: "I am serving as Joint Secretary of the Programming Club at CCN University of Science & Technology. This position has brought me closer to the student programming community and strengthened my interest in contributing to its growth.",
-  },
-  {
-    year: "LEARNING",
-    eyebrow: "EXPLORING NEW FIELDS",
-    title: "Exploring AI & Machine Learning",
-    icon: "psychology",
-    text: "I have explored AI and Machine Learning through learning opportunities with Phitron. This experience has broadened my technical interests beyond traditional software development and competitive programming.",
-  },
-  {
-    year: "NOW",
-    eyebrow: "WHY I'M RUNNING",
-    title: "Turning Experience into Contribution",
-    icon: "campaign",
-    text: "I believe I can bring meaningful value to the Computer Club through the skills I have developed and the connections I have built with people in the tech community. I want to use those opportunities to help students learn, collaborate, explore new fields, and grow together.",
-  },
+const stepIcons = [
+  "terminal",
+  "emoji_events",
+  "rocket_launch",
+  "badge",
+  "psychology",
+  "campaign",
 ];
 
 export default function MyJourney() {
+  const { dictionary } = useLanguage();
+  const journey = dictionary.journey;
+
   return (
     <Section
       bg="low"
-      eyebrow="// BACKGROUND & MOTIVATION"
-      title="My Journey in Technology & Community"
-      text="Every experience has shaped how I learn, build, collaborate, and contribute to the computing community."
+      eyebrow={journey.eyebrow}
+      title={journey.title}
+      text={journey.introduction}
     >
       <div className="relative">
         {/* Timeline line */}
         <div className="absolute top-0 bottom-0 left-4 md:left-1/2 w-px -translate-x-1/2 bg-secondary/30" />
 
-        {steps.map((s, i) => {
+        {journey.steps.map((step, i) => {
           const left = i % 2 === 0;
-          const last = i === steps.length - 1;
+          const last = i === journey.steps.length - 1;
 
           return (
             <div
-              key={s.title}
+              key={step.title}
               className="relative pl-12 md:pl-0 pb-12 md:pb-16 last:pb-0"
             >
               {/* Timeline node */}
@@ -111,7 +73,10 @@ export default function MyJourney() {
                         : "border-secondary/30 text-secondary"
                     }`}
                   >
-                    <Icon name={s.icon} className="text-[20px]" />
+                    <Icon
+                      name={stepIcons[i]}
+                      className="text-[20px]"
+                    />
                   </span>
 
                   {/* Timeline content */}
@@ -120,7 +85,7 @@ export default function MyJourney() {
                       last ? "text-secondary-fixed" : "text-secondary"
                     }`}
                   >
-                    {s.year}
+                    {step.year}
                   </p>
 
                   <p
@@ -128,11 +93,11 @@ export default function MyJourney() {
                       last ? "text-primary-fixed" : "text-on-surface-variant"
                     }`}
                   >
-                    {s.eyebrow}
+                    {step.eyebrow}
                   </p>
 
                   <h3 className="mt-1 text-headline-md font-semibold">
-                    {s.title}
+                    {step.title}
                   </h3>
 
                   <p
@@ -140,7 +105,7 @@ export default function MyJourney() {
                       last ? "text-on-primary/90" : "text-on-surface-variant"
                     }`}
                   >
-                    {s.text}
+                    {step.text}
                   </p>
 
                   {/* Chapter label */}
@@ -153,7 +118,7 @@ export default function MyJourney() {
                           : "text-on-surface-variant"
                       }`}
                     >
-                      CHAPTER 0{i + 1}
+                      {journey.chapterLabel} 0{i + 1}
                     </span>
                   </div>
                 </article>
